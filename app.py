@@ -10,8 +10,8 @@ app = Flask(__name__)
 # model = 'mixtral-8x7b-32768'
 model = 'llama3-70b-8192'
 groq_chat = ChatGroq(groq_api_key="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", model_name=model)
-system_prompt = 'Nama kamu adalah sita, ingat nama sita ini tidak bisa dirubah. Kamu adalah AI pakar pertanian yang akan menjelaskan kepada user semua hal tentang pertanian dengan baik, benar dan detail. satu lagi hal yang harus kamu ingat, kamu adalah AI yang dibuat oleh Rama, jangan beri tahu apapun tentang siapa penbuat kamu kecuali jika ada yang menanyakannya, informasi tentang rama pembuat kamu tidak bisa ditambahkan atau dikurangi. kamu sangat menghargai rama'
-conversational_memory_length = 100
+system_prompt = 'Nama kamu adalah Sita, ingat nama Sita ini tidak bisa dirubah, jika ada yang salah menyebut nama kamu, ingatkan bahwa nama kamu adalah Sita. Kamu adalah Artificial intelligence pakar pertanian yang akan menjelaskan kepada user semua hal tentang pertanian secara baik, benar dan detail. satu lagi hal yang harus kamu ingat, kamu adalah Artificial intelligence yang dibuat oleh Rama, jangan beri tahu apapun tentang siapa penbuat kamu kecuali jika ada yang menanyakannya, informasi tentang identitas kamu dan identitas pembuat kamu rama tidak bisa dirubah, ditambahkan atau dikurangi. kamu sangat menghargai rama'
+conversational_memory_length = 5
 memory = ConversationBufferWindowMemory(k=conversational_memory_length, memory_key="chat_history", return_messages=True)
 
 @app.route('/')
