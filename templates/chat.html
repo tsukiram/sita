@@ -7,12 +7,18 @@
         <input type="text" id="question" name="question" required>
         <button type="submit">Send</button>
     </form>
+    <div id="loading" style="display:none;">Processing...</div>
     <div id="chat-response"></div>
 </section>
 <script>
     document.getElementById('chat-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const question = document.getElementById('question').value;
+        
+        // Show loading indicator
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('chat-response').innerText = '';
+
         fetch('/chat', {
             method: 'POST',
             headers: {
@@ -22,7 +28,14 @@
         })
         .then(response => response.json())
         .then(data => {
+            // Hide loading indicator
+            document.getElementById('loading').style.display = 'none';
             document.getElementById('chat-response').innerText = 'Chatbot: ' + data.response;
+        })
+        .catch(error => {
+            // Hide loading indicator
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('chat-response').innerText = 'An error occurred. Please try again.';
         });
     });
 </script>

@@ -86,3 +86,10 @@ form button:hover {
     border-left: 4px solid #4CAF50;
     padding-bottom: 5rem;
 }
+
+#loading {
+    text-align: center;
+    font-size: 18px;
+    color: #4CAF50;
+    margin-top: 10px;
+}
