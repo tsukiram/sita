@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat with LLM</title>
-</head>
-<body>
-    <h1>Chat with LLM</h1>
-    <form id="chat-form">
-        <label for="question">Ask a question:</label>
-        <input type="text" id="question" name="question">
-        <button type="submit">Send</button>
-    </form>
-    <div id="response"></div>
-    
-    <script>
-        document.getElementById('chat-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const question = document.getElementById('question').value;
-            fetch('/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({
-                    'question': question
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('response').innerText = data.response;
-            });
-        });
-    </script>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <h2>Welcome to Sita</h2>
+    <p>Your friendly Agromaritim chatbot. I can help answer your questions, provide information, or just chat.</p>
+</section>
+{% endblock %}

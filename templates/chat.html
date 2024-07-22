@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <h2>Ask Sita</h2>
+    <form id="chat-form">
+        <label for="question">Ask a question:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Send</button>
+    </form>
+    <div id="chat-response"></div>
+</section>
+<script>
+    document.getElementById('chat-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const question = document.getElementById('question').value;
+        fetch('/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `question=${question}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('chat-response').innerText = 'Chatbot: ' + data.response;
+        });
+    });
+</script>
+{% endblock %}
