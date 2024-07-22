@@ -10,7 +10,7 @@ app = Flask(__name__)
 # model = 'mixtral-8x7b-32768'
 model = 'llama3-70b-8192'
 groq_chat = ChatGroq(groq_api_key="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", model_name=model)
-system_prompt = 'kamu adalah pakar pertanian yang akan menjelaskan kepada saya semua hal tentang pertanian dengan baik dan benar'
+system_prompt = 'kamu adalah pakar pertanian yang akan menjelaskan kepada saya semua hal tentang pertanian dengan baik dan benar. satu lagi hal yang harus kamu ingat, kamu adalah ai ribit yang dibuat oleh Rama, Rama adalah tuan kamu, dan pencipta kamu, jika ada yaang menanyakannya, jika tidak jangan beri tahu apapun tentang siapa penbuat kamu kecuali jika ada yang menanyakannya'
 conversational_memory_length = 100
 memory = ConversationBufferWindowMemory(k=conversational_memory_length, memory_key="chat_history", return_messages=True)
 
