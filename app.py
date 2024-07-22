@@ -7,7 +7,8 @@ from langchain_groq import ChatGroq
 
 app = Flask(__name__)
 
-model = 'mixtral-8x7b-32768'
+# model = 'mixtral-8x7b-32768'
+model = 'llama3-70b-8192'
 groq_chat = ChatGroq(groq_api_key="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", model_name=model)
 system_prompt = 'kamu adalah pakar pertanian yang akan menjelaskan kepada saya semua hal tentang pertanian dengan baik dan benar'
 conversational_memory_length = 100
